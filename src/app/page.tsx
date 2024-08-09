@@ -43,15 +43,15 @@ export default function Home() {
                             <h1 className="text-4xl font-bold font-tracking-tight text-primary text-left sm:text-6xl mb-2">
                                 Posh Punk.
                             </h1>
-                            <h2 className="ml-6 font-semibold text-foreground text-4xl">
+                            <h2 className="font-semibold text-foreground text-4xl">
                                 Digital Flea Market
                             </h2>
                         </div>
-                        <p className="mt-2 ml-12 text-lg text-left max-w-prose text-primary-foreground">
+                        <p className="mt-2 text-lg text-left max-w-prose text-primary-foreground">
                             A space for digital artists, collectors, DIYers, and
                             makers to sell their creations.
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4 mt-2 ml-16">
+                        <div className="flex flex-col sm:flex-row gap-4 mt-2">
                             <Link href="/products">
                                 <Button
                                     variant="pink"
