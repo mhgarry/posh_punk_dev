@@ -14,12 +14,12 @@ export const POSHPUNK_CATEGORIES = [
             {
                 label: "Digital",
                 value: "digital" as const,
-                imageSrc: "/images/digitald-art.jpg",
+                imageSrc: "/images/art/digital-art.jpg",
             },
             {
                 label: "Physical",
                 value: "physical" as const,
-                imageSrc: "/images/art/featured-art.jpg",
+                imageSrc: "/images/art/physical-art.jpg",
             },
         ],
     },
@@ -30,7 +30,7 @@ export const POSHPUNK_CATEGORIES = [
             {
                 label: "You Need This",
                 value: "need" as const,
-                imageSrc: "/images/collectibles/featured-collectibles/.jpg",
+                imageSrc: "/images/collectibles/featured-collectibles.jpg",
             },
             {
                 label: "Rare Finds",
@@ -56,7 +56,7 @@ export const POSHPUNK_CATEGORIES = [
             {
                 label: "Sewing Machines",
                 value: "sewing" as const,
-                imageSrc: "/images/diy/sewing-machines.jpg",
+                imageSrc: "/images/diy/sewing-machine.jpg",
             },
             {
                 label: "Tools",
@@ -75,19 +75,9 @@ export const POSHPUNK_CATEGORIES = [
                 imageSrc: "/images/fashion/featured-fashion.jpg",
             },
             {
-                label: "Accessories",
-                value: "accessories" as const,
-                imageSrc: "/images/fashion/accessories.jpg",
-            },
-            {
                 label: "Clothing",
                 value: "clothing" as const,
                 imageSrc: "/images/fashion/clothing.jpg",
-            },
-            {
-                label: "Jewelry",
-                value: "jewelry" as const,
-                imageSrc: "/images/fashion/jewelry.jpg",
             },
             {
                 label: "Shoes",
@@ -103,7 +93,7 @@ export const POSHPUNK_CATEGORIES = [
             {
                 label: "Vinyl",
                 value: "vinyl" as const,
-                imageSrc: "/images/music/viny-music.jpg",
+                imageSrc: "/images/music/vinyl.jpg",
             },
             {
                 label: "Cassettes",
@@ -114,16 +104,6 @@ export const POSHPUNK_CATEGORIES = [
                 label: "CDs",
                 value: "cds" as const,
                 imageSrc: "/images/music/cds.jpg",
-            },
-            {
-                label: "Instruments",
-                value: "instruments" as const,
-                imageSrc: "/images/music/instruments.jpg",
-            },
-            {
-                label: "Merch",
-                value: "merch" as const,
-                imageSrc: "/images/music/merch.jpg",
             },
         ],
     },

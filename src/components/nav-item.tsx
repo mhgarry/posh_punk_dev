@@ -43,8 +43,38 @@ const NavItem = ({
                     />
                 </Button>
             </div>
-        </div>
+                      {isOpen ? (
+                <div className={cn("absolute inset-x-0 top-full text-sm text-muted-foreground",
+                {
+                    "animate-in fade-in-10 slide-in-from-top-5" : !isAnyOpen,
+                })}>
+                    <div className="absolute inset-0 top-1/2 bg-background  shadow">
+                        <div className="mx-auto max-w-7xl px-8">
+                            <div className="grid grid-cols-4 gap-x-8 gap-y-10 py-16">
+                                    <div className="col-span-4 start-1 grid grid-cols-3 gap-x-8">
+                                        {category.featured.map((item) => (
+                                            <div key={item.value} className="flex flex-col gap-4">
+                                                <div className="relative h-40 w-full shadow-xl">
+                                                    <Image
+                                                        src={item.imageSrc}
+                                                        layout="fill"
+                                                        objectFit="cover"
+                                                        alt={item.label}
+                                                    />
+                                                </div>
+                                                <div className="text-lg font-bold">{item.label}</div>
+                                            </div>
+                                        ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+
+
+            ) : null}
+          </div>
 
     );
 };
