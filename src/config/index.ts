@@ -1,3 +1,6 @@
+/**
+ * * Categories for marektplace
+ */
 export const POSHPUNK_CATEGORIES = [
     {
         label: "Art",
@@ -6,15 +9,17 @@ export const POSHPUNK_CATEGORIES = [
             {
                 label: "Wow, So Cool",
                 value: "cool" as const,
-                imageSrc: "/images/featured-art.jpg",
+                imageSrc: "/images/art/featured-art.jpg",
             },
             {
                 label: "Digital",
                 value: "digital" as const,
+                imageSrc: "/images/digitald-art.jpg",
             },
             {
                 label: "Physical",
                 value: "physical" as const,
+                imageSrc: "/images/art/featured-art.jpg",
             },
         ],
     },
@@ -25,19 +30,17 @@ export const POSHPUNK_CATEGORIES = [
             {
                 label: "You Need This",
                 value: "need" as const,
-                imageSrc: "/images/featured-collectibles.jpg",
-            },
-            {
-                label: "Our Favorites",
-                value: "favorites" as const,
+                imageSrc: "/images/collectibles/featured-collectibles/.jpg",
             },
             {
                 label: "Rare Finds",
                 value: "rare" as const,
+                imageSrc: "/images/collectibles/rare-finds.jpg",
             },
             {
                 label: "Vintage",
                 value: "vintage" as const,
+                imageSrc: "/images/collectibles/vintage.jpg",
             },
         ],
     },
@@ -46,28 +49,19 @@ export const POSHPUNK_CATEGORIES = [
         value: "diy" as const,
         featured: [
             {
-                label: "Our Band Could Be Your Life",
-                value: "band" as const,
-            },
-            {
-                label: "Get Crafty",
-                value: "crafty" as const,
-            },
-            {
                 label: "The Printing Press",
                 value: "press" as const,
+                imageSrc: "/images/diy/featured-diy.jpg",
             },
             {
                 label: "Sewing Machines",
                 value: "sewing" as const,
-            },
-            {
-                label: "Supplies",
-                value: "supplies" as const,
+                imageSrc: "/images/diy/sewing-machines.jpg",
             },
             {
                 label: "Tools",
                 value: "tools" as const,
+                imageSrc: "/images/diy/tools.jpg",
             },
         ],
     },
@@ -78,23 +72,27 @@ export const POSHPUNK_CATEGORIES = [
             {
                 label: "Dammmmnnnn",
                 value: "damnnnn" as const,
-                imageSrc: "/images/featured-fashion.jpg",
+                imageSrc: "/images/fashion/featured-fashion.jpg",
             },
             {
                 label: "Accessories",
                 value: "accessories" as const,
+                imageSrc: "/images/fashion/accessories.jpg",
             },
             {
                 label: "Clothing",
                 value: "clothing" as const,
+                imageSrc: "/images/fashion/clothing.jpg",
             },
             {
                 label: "Jewelry",
                 value: "jewelry" as const,
+                imageSrc: "/images/fashion/jewelry.jpg",
             },
             {
                 label: "Shoes",
                 value: "shoes" as const,
+                imageSrc: "/images/fashion/shoes.jpg",
             },
         ],
     },
@@ -105,84 +103,74 @@ export const POSHPUNK_CATEGORIES = [
             {
                 label: "Vinyl",
                 value: "vinyl" as const,
+                imageSrc: "/images/music/viny-music.jpg",
             },
             {
                 label: "Cassettes",
                 value: "cassettes" as const,
+                imageSrc: "/images/music/cassettes.jpg",
             },
             {
                 label: "CDs",
                 value: "cds" as const,
-            },
-            {
-                label: "Albums",
-                value: "albums" as const,
+                imageSrc: "/images/music/cds.jpg",
             },
             {
                 label: "Instruments",
                 value: "instruments" as const,
+                imageSrc: "/images/music/instruments.jpg",
             },
             {
                 label: "Merch",
                 value: "merch" as const,
+                imageSrc: "/images/music/merch.jpg",
             },
         ],
     },
-    {
-        label: "Prints",
-        value: "prints" as const,
-        featured: [
-            {
-                label: "Hang It Up",
-                value: "hang" as const,
-            },
-            {
-                label: "Digital",
-                value: "digital" as const,
-            },
-            {
-                label: "Physical",
-                value: "physical" as const,
-            },
-        ],
-    },
-    {
-        label: "Zines",
-        value: "zines" as const,
-        featured: [
-            {
-                label: "Can't Put Down",
-                value: "down" as const,
-                imageSrc: "/images/featured-zines.jpg",
-            },
-            {
-                label: "Art",
-                value: "art" as const,
-            },
-            {
-                label: "Comics",
-                value: "comics" as const,
-            },
-            {
-                label: "Literature",
-                value: "literature" as const,
-            },
-            {
-                label: "Photography",
-                value: "photography" as const,
-            },
-            {
-                label: "Poetry",
-                value: "poetry" as const,
-            },
-            {
-                label: "Topical",
-                value: "topical" as const,
-            },
-            {
-                label: "Music",
-                value: "music" as const,
-            },
-        ],
-    },
+    // {
+    //     label: "Zines",
+    //     value: "zines" as const,
+    //     featured: [
+    //         {
+    //             label: "Can't Put Down",
+    //             value: "down" as const,
+    //             imageSrc: "/images/zines/featured-zines.jpg",
+    //         },
+    //         {
+    //             label: "Art",
+    //             value: "art" as const,
+    //             imageSrc: "/images/zines/art.jpg",
+    //         },
+    //         {
+    //             label: "Comics",
+    //             value: "comics" as const,
+    //             imageSrc: "/images/zines/comics.jpg",
+    //         },
+    //         {
+    //             label: "Literature",
+    //             value: "literature" as const,
+    //             imageSrc: "/images/zines/literature.jpg",
+    //         },
+    //         {
+    //             label: "Photography",
+    //             value: "photography" as const,
+    //             imageSrc: "/images/zines/photography.jpg",
+    //         },
+    //         {
+    //             label: "Poetry",
+    //             value: "poetry" as const,
+    //             imageSrc: "/images/zines/poetry.jpg",
+    //         },
+    //         {
+    //             label: "Topical",
+    //             value: "topical" as const,
+    //             imageSrc: "/images/zines/topical.jpg",
+    //         },
+    //         {
+    //             label: "Music",
+    //             value: "music" as const,
+    //             imageSrc: "/images/zines/music.jpg",
+    //         },
+    //     ],
+    // },
 ];
