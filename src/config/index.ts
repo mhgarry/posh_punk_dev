@@ -7,7 +7,7 @@ export const POSHPUNK_CATEGORIES = [
         value: "art" as const,
         featured: [
             {
-                label: "Wow, So Cool",
+                label: "Wow, take a look at this",
                 value: "cool" as const,
                 imageSrc: "/images/art/featured-art.jpg",
             },
