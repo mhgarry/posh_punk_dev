@@ -30,16 +30,13 @@ const NavItem = ({
                 <Button
                     className="gap-1.5"
                     onClick={handleOpen}
-                    variant={isOpen ? "pink" : "dark"}
+                    variant={isOpen ? "default" : "dark"}
                 >
                     {category.label}
                     <FaChevronDown
-                        className={cn(
-                            "h-4 w-4 transition-all text-background",
-                            {
-                                "-rotate-180": isOpen,
-                            },
-                        )}
+                        className={cn("h-4 w-4 transition-all", {
+                            "-rotate-180": isOpen,
+                        })}
                     />
                 </Button>
             </div>

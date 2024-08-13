@@ -3,6 +3,7 @@ import MaxWidthWrapper from "./maxWidthWrapper";
 import { Icons } from "./icons";
 import NavItems from "./nav-items";
 import { buttonVariants } from "./ui/button";
+import Cart from "./cart";
 
 const Navbar = async () => {
     const user = null;
@@ -30,8 +31,7 @@ const Navbar = async () => {
                                         <Link
                                             href="/log-in"
                                             className={buttonVariants({
-                                                variant: "pink",
-                                                className: "h-10 px-4",
+                                                variant: "dark",
                                             })}
                                         >
                                             Login
@@ -46,8 +46,7 @@ const Navbar = async () => {
                                         <Link
                                             href="/register"
                                             className={buttonVariants({
-                                                variant: "pink",
-                                                className: "h-10 px-4",
+                                                variant: "dark",
                                             })}
                                         >
                                             Register
@@ -64,7 +63,7 @@ const Navbar = async () => {
                                     )}
 
                                     <div className="ml-4 flow-root lg:ml-6">
-                                        {/* <CartButton /> */}
+                                        <Cart />
                                     </div>
                                 </div>
                             </div>
