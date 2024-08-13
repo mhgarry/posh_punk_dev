@@ -1,9 +1,12 @@
 import Link from "next/link";
 import MaxWidthWrapper from "./maxWidthWrapper";
-import { Icons } from "./Icons";
+import { Icons } from "./icons";
 import NavItems from "./nav-items";
+import { buttonVariants } from "./ui/button";
 
 const Navbar = async () => {
+    const user = null;
+
     return (
         <div className="bg-background sticky z-50 top-0 inset-x-0 h-16">
             <header className="relative bg-background">
@@ -23,7 +26,46 @@ const Navbar = async () => {
 
                             <div className="ml-auto flex items-center">
                                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                                    <div className="ml-4 flow-root lg:ml-6"></div>
+                                    {user ? null : (
+                                        <Link
+                                            href="/log-in"
+                                            className={buttonVariants({
+                                                variant: "pink",
+                                                className: "h-10 px-4",
+                                            })}
+                                        >
+                                            Login
+                                        </Link>
+                                    )}
+                                    {user ? null : (
+                                        <span className="h-6 w-px bg-gray-200" />
+                                    )}
+                                    {user ? (
+                                        <p></p>
+                                    ) : (
+                                        <Link
+                                            href="/register"
+                                            className={buttonVariants({
+                                                variant: "pink",
+                                                className: "h-10 px-4",
+                                            })}
+                                        >
+                                            Register
+                                        </Link>
+                                    )}
+
+                                    {user ? (
+                                        <span className="h-6 w-px bg-gray-200" />
+                                    ) : null}
+                                    {user ? null : (
+                                        <div className="flex lg:ml-6">
+                                            <span className="h-6 w-px bg-gray-200" />
+                                        </div>
+                                    )}
+
+                                    <div className="ml-4 flow-root lg:ml-6">
+                                        {/* <CartButton /> */}
+                                    </div>
                                 </div>
                             </div>
                         </div>

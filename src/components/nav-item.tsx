@@ -30,7 +30,7 @@ const NavItem = ({
                 <Button
                     className="gap-1.5"
                     onClick={handleOpen}
-                    variant={isOpen ? "dark" : "pink"}
+                    variant={isOpen ? "pink" : "dark"}
                 >
                     {category.label}
                     <FaChevronDown
@@ -60,7 +60,7 @@ const NavItem = ({
                                     {category.featured.map((item) => (
                                         <div
                                             key={item.value}
-                                            className="flex flex-col gap-4 group"
+                                            className="relative group"
                                         >
                                             <div className="relative aspect-video overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75">
                                                 <Image
@@ -70,9 +70,16 @@ const NavItem = ({
                                                     alt={item.label}
                                                 />
                                             </div>
-                                            <Link href={item.value} passHref>
+                                            <Link
+                                                href={item.value}
+                                                passHref
+                                                className="mt-6 block text-foreground font-medium"
+                                            >
                                                 {item.label}
                                             </Link>
+                                            <p className="mt-1">
+                                                Shop {item.value}
+                                            </p>
                                         </div>
                                     ))}
                                 </div>
