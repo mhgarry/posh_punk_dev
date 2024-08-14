@@ -37,7 +37,7 @@ export default function Home() {
         <section className="flex flex-col bg-background mx-auto max-w-7xl items-center">
             <section>
                 <MaxWidthWrapper>
-                    <div className="py-6 border border-primary/50 rounded-lg  mx-auto text-left flex flex-col bg-background mt-12 shadow-sm py-6 items-left px-6 max-w-7xl">
+                    <div className="py-6 rounded-lg  mx-auto text-left flex flex-col bg-background mt-12 shadow-sm py-6 items-left  max-w-7xl">
                         <div className="flex flex-col text-left">
                             {" "}
                             <h1 className="text-4xl font-bold font-tracking-tight text-primary text-left sm:text-6xl mb-2">
@@ -53,50 +53,22 @@ export default function Home() {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 mt-2">
                             <Link href="/products">
-                                <Button
-                                    variant="pink"
-                                    className="border hover:ring-primary/50 hover:ring-2 focus:ring-primary/50 focus:ring-2 active:ring-primary/50 active:ring-2"
-                                >
+                                <Button variant="pink">
                                     What Will Find You Today?
                                 </Button>
                             </Link>
                         </div>
                     </div>
-                    <div className="border-b border-primary/50 mt-12 mb-12"></div>
+                    <div className="border-b border-secondary/50 mt-12 mb-12"></div>
                 </MaxWidthWrapper>
 
                 <section className="mx-auto text-center flex flex-col items-left max-w-7xl">
                     <MaxWidthWrapper className="py-20">
-                        {/* <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0">
-                            {perks.map((perk) => (
-                                <Card
-                                    key={perk.name}
-                                    className="text-center md:flex md:items-start md:text-left lg:block lg:text-center p-4"
-                                >
-                                    <div className="md:flex-shrink-0 flex justify-center">
-                                        <div className="h-16 w-16 flex items-center justify-center rounded-full bg-primary/30 text-primary">
-                                            {
-                                                <perk.Icon className="w-1/3 h-1/3" />
-                                            }
-                                        </div>
-                                    </div>
-
-                                    <CardHeader className="mt-6 md:ml-4 md:mt-0 lg:ml-0 lg:mt-6">
-                                        <h3 className="text-base font-medium text-gray-900">
-                                            {perk.title}
-                                        </h3>
-                                        <CardContent className="mt-3 text-sm text-muted-foreground">
-                                            {perk.description}
-                                        </CardContent>
-                                    </CardHeader>
-                                </Card>
-                            ))}
-                        </div> */}
                         <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0">
                             {perks.map((perk) => (
                                 <Card
                                     key={perk.title}
-                                    className="text-center md:flex md:items-start md:text-left lg:block lg:text-center p-4"
+                                    className="text-center md:flex md:items-start md:text-left lg:block lg:text-center p-4 border border-secondary"
                                 >
                                     <div className="md:flex-shrink-0 flex justify-center">
                                         <div className="h-16 w-16 flex items-center justify-center rounded-full bg-primary/30 text-primary">
