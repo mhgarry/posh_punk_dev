@@ -6,20 +6,15 @@ import path from "path";
 
 export default buildConfig({
     serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",
-    collections: [], // products and user files collection,
     routes: {
         admin: "/sell",
     },
     admin: {
         bundler: webpackBundler(),
         meta: {
-            titleSuffix: "- PoshPunk Dashboard",
+            titleSuffix: "- PoshPunk Admin",
             favicon: "/favicon.ico",
-            ogImage: "/",
-        },
-
-        typescript: {
-            outputFile: path.resolve(__dirname, "payload-types.ts"),
+            ogImage: "/thumbnail.jpg",
         },
     },
     rateLimit: {
@@ -29,4 +24,7 @@ export default buildConfig({
     db: mongooseAdapter({
         url: process.env.MONGO_URL!,
     }),
+    typescript: {
+        outputFile: path.resolve(__dirname, "payload-types.ts"),
+    },
 });

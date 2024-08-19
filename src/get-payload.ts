@@ -10,10 +10,10 @@ dotenv.config({
 let cached = (global as any).payload;
 
 if (!cached) {
-    cached = (global as any).payload({
+    cached = (global as any).payload = {
         client: null,
         promise: null,
-    });
+    };
 }
 
 interface Args {
