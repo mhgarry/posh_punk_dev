@@ -4,7 +4,8 @@
         "module": "CommonJS",
         "outDir": "dist",
         "noEmit": false,
-        "jsx": "react"
+        "jsx": "react",
+        "forceConsistentCasingInFileNames": true
     },
-    "include": ["src/server.ts", "src/payload.config.ts"]
+    "include": ["src/server.ts src/payload.config.ts"]
 }

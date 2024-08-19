@@ -1,6 +1,7 @@
 import express from "express";
 import { getPayloadClient } from "./get-payload";
-
+import { nextHandler } from "./next-utils";
+import { nextApp } from "./next-utils";
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 
@@ -16,7 +17,7 @@ const startServer = async () => {
 
     app.use((req, res) => nextHandler(req, res));
 
-    nextApp.preapre().then(() => {
+    nextApp.prepare().then(() => {
         payload.logger.info(`Next.js is ready `);
 
         app.listen(PORT, async () => {

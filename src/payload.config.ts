@@ -11,21 +11,22 @@ export default buildConfig({
         admin: "/sell",
     },
     admin: {
-        bundlr: webpackBundler(),
+        bundler: webpackBundler(),
         meta: {
             titleSuffix: "- PoshPunk Dashboard",
             favicon: "/favicon.ico",
             ogImage: "/",
         },
-        rateLimit: {
-            max: 2000,
-        },
+
         typescript: {
             outputFile: path.resolve(__dirname, "payload-types.ts"),
         },
     },
+    rateLimit: {
+        max: 2000,
+    },
     editor: slateEditor({}),
     db: mongooseAdapter({
-        url: process.env.MONGO_URL,
+        url: process.env.MONGO_URL!,
     }),
 });
