@@ -3,6 +3,8 @@ import { router, publicProcedure } from "./trpc";
 import { getPayloadClient } from "../get-payload";
 import { TRPCError } from "@trpc/server";
 
+import { z } from "zod";
+
 export const authRouter = router({
     createPayloadUser: publicProcedure
         .input(AuthCredentialsValidator)
@@ -34,5 +36,26 @@ export const authRouter = router({
             });
 
             return { success: true, message: "User created successfully" }; // return success message if user is created successfully
+        }),
+
+    verifyEmail: publicProcedure
+        .input(
+            z.object({
+                token: z.string(),
+            }),
+        )
+        .mutation(async ({ input }) => {
+            const { token } = input; // destructuring input data from the client to get the token
+
+            const payload = await getPayloadClient(); // get the playload client to interact with the database
+
+            const isVerified = await payload.verifyEmail({
+                collection: "users",
+                token,
+            });
+
+            if (!isVerified) throw new TRPCError({ code: "UNAUTHORIZED" }); // if the token is invalid throw an error
+
+            return { success: true, message: "Email verified successfully" }; // return success message if email is verified successfully
         }),
 });
