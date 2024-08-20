@@ -7,6 +7,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { FaArrowRight } from "react-icons/fa6";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const Page = () => {
     return (
@@ -55,16 +56,25 @@ const Page = () => {
                                     />
                                 </div>
                                 <div className="grid gap-1 py-2">
-                                    <Label htmlFor="password">Password</Label>
+                                    <Label htmlFor="password">
+                                        Confirm Password
+                                    </Label>
                                     <Input
                                         className={cn({
                                             "focus-visible-ring-2 focus-visible:ring-red-500":
                                                 true,
                                         })}
                                         type="password"
-                                        placeholder="Password"
+                                        placeholder="Confirm Password"
                                     />
                                 </div>
+                                <Button
+                                    className={cn({
+                                        "w-full": true,
+                                    })}
+                                >
+                                    Sign Up
+                                </Button>
                             </div>
                         </form>
                     </div>
