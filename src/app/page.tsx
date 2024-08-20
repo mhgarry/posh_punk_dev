@@ -12,7 +12,7 @@ import Link from "next/link";
 import { FaPalette } from "react-icons/fa6";
 import { FaPenNib } from "react-icons/fa6";
 
-import { FaDumpster, FaHandHoldingHeart } from "react-icons/fa";
+import { FaHandHoldingHeart } from "react-icons/fa";
 
 const perks = [
     {

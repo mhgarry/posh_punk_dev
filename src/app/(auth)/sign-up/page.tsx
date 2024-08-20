@@ -1,15 +1,35 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { Icons } from "@/components/icons";
-import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
-import { FaArrowRight } from "react-icons/fa6";
-import { Label } from "@/components/ui/label";
+import { Icons } from "@/components/Icons";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FaArrowRight } from "react-icons/fa6";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
+
+import {
+    AuthCredentialsValidator,
+    TAuthCredentialsValidator,
+} from "@/lib/validators/account-credentials-validator";
+import { trpc } from "@/trpc/client";
 
 const Page = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<TAuthCredentialsValidator>({
+        resolver: zodResolver(AuthCredentialsValidator),
+    });
+
+    const { data } = trpc.anyApiRoute.useQuery();
+    console.log(data);
+    const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
+        // handle submit
+    };
     return (
         <>
             <div className="container relative flex pt-20 flex-col items-center justify-center lg:px-0 ">
@@ -31,11 +51,12 @@ const Page = () => {
                         </Link>
                     </div>
                     <div className="grid gap-6">
-                        <form>
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="grid gap-2">
                                 <div className="grid gap-1 py-2">
                                     <Label htmlFor="email">Email</Label>
                                     <Input
+                                        {...register("email")}
                                         className={cn({
                                             "focus-visible-ring-2 focus-visible:ring-red-500":
                                                 true,
