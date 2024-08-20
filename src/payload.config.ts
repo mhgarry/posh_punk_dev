@@ -1,15 +1,19 @@
 import { buildConfig } from "payload/config";
+import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { slateEditor } from "@payloadcms/richtext-slate";
-import { webpackBundler } from "@payloadcms/bundler-webpack";
 import path from "path";
+import { Users } from "./collections/users";
 
 export default buildConfig({
     serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",
+    collections: [Users],
     routes: {
         admin: "/sell",
     },
+
     admin: {
+        user: "users",
         bundler: webpackBundler(),
         meta: {
             titleSuffix: "- PoshPunk Admin",

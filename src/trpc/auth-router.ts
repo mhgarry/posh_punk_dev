@@ -1,6 +1,7 @@
-import { AuthCredentialsValidator } from "@/lib/validators/account-credentials-validator";
+import { AuthCredentialsValidator } from "../lib/validators/account-credentials-validator";
 import { router, publicProcedure } from "./trpc";
-import { getPayloadClient } from "@/get-payload";
+import { getPayloadClient } from "../get-payload";
+import { TRPCError } from "@trpc/server";
 
 export const authRouter = router({
     createPayloadUser: publicProcedure
@@ -23,5 +24,14 @@ export const authRouter = router({
                     message: "Email already exists",
                 });
             }
+
+            await payload.create({
+                collection: "users",
+                data: {
+                    email,
+                    password,
+                    role: "user",
+                },
+            });
         }),
 });
