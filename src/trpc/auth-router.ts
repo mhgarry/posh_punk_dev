@@ -21,9 +21,8 @@ export const authRouter = router({
             if (users.length !== 0) {
                 throw new TRPCError({
                     code: "CONFLICT",
-                    message: "Email already exists",
                 });
-            }
+            } // if email is already registered, throw an error
 
             await payload.create({
                 collection: "users",
@@ -33,5 +32,7 @@ export const authRouter = router({
                     role: "user",
                 },
             });
+
+            return { success: true, message: "User created successfully" }; // return success message if user is created successfully
         }),
 });
