@@ -22,7 +22,7 @@ const startServer = async () => {
 
         app.listen(PORT, async () => {
             payload.logger.info(
-                `Payload server is listening on http://localhost:${process.env.NEXT_PUBLIC_SERVER_URL}`,
+                `Payload server is listening on ${process.env.NEXT_PUBLIC_SERVER_URL}`,
             );
         });
     });
