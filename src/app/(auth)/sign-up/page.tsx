@@ -77,7 +77,7 @@ const Page = () => {
                                         placeholder="Password"
                                     />
                                 </div>
-                                <div className="grid gap-1 py-2">
+                                {/* <div className="grid gap-1 py-2">
                                     <Label htmlFor="password">
                                         Confirm Password
                                     </Label>
@@ -90,7 +90,7 @@ const Page = () => {
                                         type="password"
                                         placeholder="Confirm Password"
                                     />
-                                </div>
+                                </div> */}
                                 <Button
                                     className={cn({
                                         "w-full": true,
