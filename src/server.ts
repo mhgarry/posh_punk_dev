@@ -24,7 +24,7 @@ const startServer = async () => {
 
     app.listen(PORT, async () => {
       payload.logger.info(
-        `Payload server is listening on ${process.env.NEXT_DASHBOARD_URL}`,
+        `Payload server is listening on ${process.env.NEXT_API_URL}`,
       )
     })
   })

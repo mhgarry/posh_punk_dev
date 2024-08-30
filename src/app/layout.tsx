@@ -1,9 +1,10 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
 import Navbar from '@/components/navbar'
-
+import Providers from '@/components/providers'
 const inter = Inter({
   subsets: ['latin'],
 })
@@ -25,12 +26,14 @@ export default function RootLayout({
         className={cn('relative h-full font-sans antialiased', inter.className)}
       >
         <main className="relative flex flex-col min-h-screen">
-          <Navbar />
-          <div className="flex-grow flex-1">
-            <main className="relative flex flex-col min-h-screen">
-              <div className="flex-grow flex-1">{children}</div>
-            </main>
-          </div>
+          <Providers>
+            <Navbar />
+            <div className="flex-grow flex-1">
+              <main className="relative flex flex-col min-h-screen">
+                <div className="flex-grow flex-1">{children}</div>
+              </main>
+            </div>
+          </Providers>
         </main>
       </body>
     </html>

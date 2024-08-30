@@ -10,7 +10,7 @@ dotenv.config({
 })
 
 export default buildConfig({
-  serverURL: process.env.NEXT_DASHBOARD_URL || '',
+  serverURL: process.env.NEXT_API_URL || '',
   collections: [],
   routes: {
     admin: '/sell',
