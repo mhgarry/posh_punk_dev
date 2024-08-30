@@ -1,3 +1,5 @@
+import React from 'react'; // Import the React module
+
 import Link from 'next/link'
 import MaxWidthWrapper from './maxWidthWrapper'
 import { Icons } from './icons'

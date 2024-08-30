@@ -1,108 +1,8 @@
-/** @format */
-
-// import {
-//     AuthCredentialsValidator,
-//     TAuthCredentialsValidator,
-// } from "@/lib/validators/account-credentials-validator";
-// import { trpc } from "@/trpc/client";
-
-// const Page = () => {
-//     const {
-//         register,
-//         handleSubmit,
-//         formState: { errors },
-//     } = useForm<TAuthCredentialsValidator>({
-//         resolver: zodResolver(AuthCredentialsValidator),
-//     });
-
-//     const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({});
-
-//     const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
-//         mutate({ email, password });
-//     };
-//     return (
-//         <>
-//             <div className="container relative flex pt-20 flex-col items-center justify-center lg:px-0 ">
-//                 <div className="mx-auto flex w-full flex-col space-y-6 justify-center sm:w-[350px] ">
-//                     <div className="flex flex-col items-center space-y-2 text-center">
-//                         <Icons.logo className="w-20 h-20" />
-//                         <h1 className="text-2xl font-bold">
-//                             Create an account
-//                         </h1>
-//                         <Link
-//                             href="/sign-in"
-//                             className={buttonVariants({
-//                                 variant: "link",
-//                                 className: "gap-1.5",
-//                             })}
-//                         >
-//                             Back again? Sign in here
-//                             <FaArrowRight className="h-4 w-4" />
-//                         </Link>
-//                     </div>
-//                     <div className="grid gap-6">
-//                         <form onSubmit={handleSubmit(onSubmit)}>
-//                             <div className="grid gap-2">
-//                                 <div className="grid gap-1 py-2">
-//                                     <Label htmlFor="email">Email</Label>
-//                                     <Input
-//                                         {...register("email")}
-//                                         className={cn({
-//                                             "focus-visible-ring-2 focus-visible:ring-red-500":
-//                                                 true,
-//                                         })}
-//                                         type="email"
-//                                         placeholder="Your Email"
-//                                     />
-//                                 </div>
-//                                 <div className="grid gap-1 py-2">
-//                                     <Label htmlFor="password">Password</Label>
-//                                     <Input
-//                                         {...register("password")}
-//                                         className={cn({
-//                                             "focus-visible-ring-2 focus-visible:ring-red-500":
-//                                                 true,
-//                                         })}
-//                                         type="password"
-//                                         placeholder="Password"
-//                                     />
-//                                 </div>
-//                                 {/* <div className="grid gap-1 py-2">
-//                                     <Label htmlFor="password">
-//                                         Confirm Password
-//                                     </Label>
-//                                     <Input
-//                                         {...register("password")}
-//                                         className={cn({
-//                                             "focus-visible-ring-2 focus-visible:ring-red-500":
-//                                                 true,
-//                                         })}
-//                                         type="password"
-//                                         placeholder="Confirm Password"
-//                                     />
-//                                 </div> */}
-//                                 <Button
-//                                     className={cn({
-//                                         "w-full": true,
-//                                     })}
-//                                 >
-//                                     Sign Up
-//                                 </Button>
-//                             </div>
-//                         </form>
-//                     </div>
-//                 </div>
-//             </div>
-//         </>
-//     );
-// };
-
-// export default Page;
-
+/* eslint-disable react/react-in-jsx-scope */
 'use client'
 
+import { Icons } from '@/components/icons'
 import { Button, buttonVariants } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
 import {
   Card,
   CardContent,
@@ -111,92 +11,130 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { Icons } from '@/components/icons'
-import { FaArrowRight, FaGithub } from 'react-icons/fa'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Link as LinkIcon } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { UserPenIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
+import { FaGithub, FaGoogle } from 'react-icons/fa6'
+import { zodResolver } from '@hookform/resolvers/zod'
+
+import { z } from 'zod'
 
 const Page = () => {
+  const AuthCredentialsValidator = z.object({
+    email: z.string().email(),
+    password: z.string().min(8, 'Password must be at least 8 characters'),
+    // confirmPassword: z.string().min(8, 'Password must be at least 8 characters').refine(data => data === data.password, {
+    //   message: 'Passwords do not match',
+    // }),
+  })
+
+  type TAuthCredentialsValidator = z.infer<typeof AuthCredentialsValidator>
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm<TAuthCredentialsValidator>({
+    resolver: zodResolver(AuthCredentialsValidator),
+  })
+
+  const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
+    // send data to the server to handle sign up logic here
+  }
 
   return (
     <>
-      <div className="container relative flex pt-10 flex-col items-center justify-center lg:px-0 ">
-        <form>
-          <Card className="mx-auto max-w-xl flex flex-col items-center">
-            <CardHeader className="flex flex-col items-center justify-between ">
-              <Icons.logo className="w-40 h-40 mb-4" />
-              <CardTitle className="text-xl">Sign Up</CardTitle>
-              <CardDescription>
-                Enter your information to create an account
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-4">
-                <div className="grid gap-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="example@example.com"
-                    required
-                    className={cn({
-                      'focus-visible:ring-red-500': true,
-                    })}
-                  />
-                </div>
+      <div className="container relative flex pt-20 flex-col items-center justify-center w-full">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="mx-auto flex w-full flex-col justify-center space-y-6 ">
+            <Card className="mx-auto w-full flex flex-col items-center">
+              <CardHeader className="flex flex-col items-center">
+                <Icons.logo className="h-24 w-24" />
+                <CardTitle className="text-4xl text-center font-antialiased text-primary">
+                  Create Account
+                </CardTitle>
+                <CardDescription>
+                  Join PoshPunk today and start shopping for your treasure.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
                 <div className="grid gap-4">
                   <div className="grid gap-2">
-                    <Label htmlFor="email">Password</Label>
+                    <Label htmlFor="email">Email</Label>
                     <Input
+                      {...register('email')}
+                      className={cn({
+                        'focus-visible:ring-red-500': errors.email,
+                      })}
+                      id="email"
+                      type="email"
+                      placeholder="example@example.com"
+                      required
+                      aria-required
+                      aria-label="email input"
+                    />
+                  </div>
+                  <div className="grid gap-2">
+                    <Label htmlFor="password">Password</Label>
+                    <Input
+                      {...register('password', { required: true })}
                       id="password"
                       type="password"
-                      placeholder="password"
                       required
+                      aria-required
+                      aria-label="password input"
                       className={cn({
-                        'focus-visible:ring-red-500': true,
+                        'focus-visible:ring-red-500': errors.password,
                       })}
                     />
                   </div>
+                  <div className="grid gap-2">
+                    <Button
+                      variant="default"
+                      type="submit"
+                      className="w-full flex flex-row gap-4 align-center items-center"
+                    >
+                      Create an account <UserPenIcon />
+                    </Button>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="grid gap-2">
+                      <Button
+                        variant="outline"
+                        type="submit"
+                        className="gap-1.5"
+                      >
+                        <FaGoogle w-4 h-4 />
+                        Sign up with Google
+                      </Button>
+                    </div>
+
+                    <div className="grid gap-2">
+                      <Button
+                        variant="outline"
+                        type="submit"
+                        className="gap-1.5"
+                      >
+                        <FaGithub className="h-4 w-4" /> Sign up with GithHub
+                      </Button>
+                    </div>
+                  </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <Button type="submit" variant="outline" className="w-full">
-                    Create an account
-                  </Button>
-                  <Button variant="outline" className="w-full gap-1.5">
-                    <FaGithub className="w-4 h-4" />
-                    Sign up with GitHub
-                  </Button>
+                <div className="mt-4 text-center text-sm">
+                  Already have an account?{' '}
+                  <Link href="#" className="underline">
+                    Sign in
+                  </Link>
                 </div>
-              </div>
-            </CardContent>
-            <CardFooter className="flex flex-col items-center w-full">
-              <div className="flex flex-row items-center justify-between w-full p-4">
-                <Link
-                  href="/sign-in"
-                  className={buttonVariants({
-                    variant: 'link',
-                    className: 'gap-1.5',
-                  })}
-                >
-                  <LinkIcon className="w-4 h-4" />
-                  <span>Already have an account? Sign in here</span>
-                </Link>
-              </div>
-            </CardFooter>
-          </Card>
+              </CardContent>
+            </Card>
+          </div>
         </form>
       </div>
     </>
   )
 }
-
 export default Page

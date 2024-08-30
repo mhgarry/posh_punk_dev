@@ -2,20 +2,19 @@
   "name": "posh_punk_dev",
   "version": "0.1.0",
   "private": true,
-"scripts": {
-  "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts nodemon",
-  "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:types",
-  "build": "next build",
-  "start": "next start",
-  "check-types": "tsc --pretty --noEmit",
-  "check-format": "prettier --check .",
-  "check-lint": "eslint . --c ts --c tsx --c js",
-  "format": "prettier --write .",
-  "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
-  "test": "echo \"no test specified\"",
-  "prepare": "husky install"
-},
-
+  "scripts": {
+    "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts nodemon",
+    "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:types",
+    "build": "next build",
+    "start": "next start",
+    "check-types": "tsc --pretty --noEmit",
+    "check-format": "prettier --check .",
+    "check-lint": "eslint . --c ts --c tsx --c js",
+    "format": "prettier --write .",
+    "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
+    "test": "echo \"no test specified\"",
+    "prepare": "husky install"
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@payloadcms/bundler-webpack": "^1.0.7",

@@ -6,6 +6,7 @@ import { FaChevronDown } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
+import React from 'react' // Add this line
 
 type Category = (typeof POSHPUNK_CATEGORIES)[number]
 
