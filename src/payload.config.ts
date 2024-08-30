@@ -4,6 +4,8 @@ import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { slateEditor } from '@payloadcms/richtext-slate'
 import dotenv from 'dotenv'
 import path from 'path'
+import { Users } from './collections/Users'
+
 
 dotenv.config({
   path: path.resolve(__dirname, '../.env'),
@@ -11,12 +13,13 @@ dotenv.config({
 
 export default buildConfig({
   serverURL: process.env.NEXT_API_URL || '',
-  collections: [],
+  collections: [Users],
   routes: {
     admin: '/sell',
   },
 
   admin: {
+    user: "users",
     bundler: webpackBundler(),
     meta: {
       titleSuffix: '- PoshPunk Admin',
