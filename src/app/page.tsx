@@ -1,9 +1,10 @@
 /** @format */
 
+import React from 'react' // Add this line to import React
 import MaxWidthWrapper from '@/components/maxWidthWrapper'
 import { Button } from '@/components/ui/button'
 
-import { Card, CardFooter, CardContent, CardHeader } from '@/components/ui/card'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import Link from 'next/link'
 
 import { FaPalette } from 'react-icons/fa6'

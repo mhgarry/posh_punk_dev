@@ -21,6 +21,7 @@ import { FaGithub, FaGoogle } from 'react-icons/fa6'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { z } from 'zod'
+import { trpc } from '@/trpc/client'
 
 const Page = () => {
   const AuthCredentialsValidator = z.object({
@@ -40,6 +41,10 @@ const Page = () => {
   } = useForm<TAuthCredentialsValidator>({
     resolver: zodResolver(AuthCredentialsValidator),
   })
+
+  const { data } = trpc.anyApiRoute.useQuery()
+
+  console.log(data)
 
   const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
     // send data to the server to handle sign up logic here
