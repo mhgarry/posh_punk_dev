@@ -1,22 +1,9 @@
 {
-	"overrides": [
-		{
-			"files": "*.json",
-			"options": {
-				"printWidth": 200
-			}
-		}
-	],
-	"printWidth": 80,
-	"tabWidth": 2,
-	"bracketSpacing": true,
-	"jsxBracketSameLine": false,
-	"useTabs": true,
-	"semi": false,
-	"singleQuote": true,
-	"quoteProps": "as-needed",
-	"trailingComma": "all",
-	"arrowParens": "always",
-	"endOfLine": "lf",
-	"bracketSameLine": false
+  "semi": false,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "printWidth": 80,
+  "arrowParens": "always",
+  "endOfLine": "lf"
 }
