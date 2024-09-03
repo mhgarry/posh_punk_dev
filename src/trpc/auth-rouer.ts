@@ -36,7 +36,7 @@ export const authRouter = router({
 	}),
 
 	// create public procedure to verify registration VerifyEmail
-	verifyEmail: publicProcedure.input(z.object({ token: z.string() })).mutation(async ({ input }) => {
+	verifyEmail: publicProcedure.input(z.object({ token: z.string() })).query(async ({ input }) => {
 		// the token is the input from the client
 		const { token } = input
 		// get payload client
