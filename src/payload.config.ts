@@ -11,7 +11,7 @@ dotenv.config({
 })
 
 export default buildConfig({
-	serverURL: process.env.NEXT_API_URL || '',
+	serverURL: process.env.NEXT_PUBLIC_DOMAIN || '',
 	collections: [Users],
 	routes: {
 		admin: '/sell',
@@ -23,7 +23,7 @@ export default buildConfig({
 		meta: {
 			titleSuffix: '- PoshPunk Admin',
 			favicon: '/favicon.ico',
-			ogImage: '/thumbnail.jpg',
+			ogImage: 'images/logo.png',
 		},
 	},
 	rateLimit: {

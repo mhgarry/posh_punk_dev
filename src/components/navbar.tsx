@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react' // Import the React module
 
 import Link from 'next/link'
@@ -6,6 +8,7 @@ import { Icons } from './icons'
 import NavItems from './nav-items'
 import { buttonVariants } from './ui/button'
 import Cart from './cart'
+import ThemeToggle from './theme-toggle'
 
 const Navbar = async () => {
 	const user = null
@@ -22,6 +25,7 @@ const Navbar = async () => {
 								<Link href='/'>
 									<Icons.logo className='h-10 w-10' />
 								</Link>
+								<div></div>
 							</div>
 							<div className='hidden lg:flex lg:flex-1  lg:items-center lg:justify-between lg:space-x-6'>
 								<NavItems />
@@ -62,6 +66,9 @@ const Navbar = async () => {
 
 									<div className='ml-4 flow-root lg:ml-6'>
 										<Cart />
+									</div>
+									<div className='ml-4 flow-root lg:ml-6'>
+										<ThemeToggle />
 									</div>
 								</div>
 							</div>
