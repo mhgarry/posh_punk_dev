@@ -22,7 +22,7 @@ const NavItem = ({ isAnyOpen, category, handleOpen, close, isOpen }: NavItemProp
 	return (
 		<div className='flex'>
 			<div className='relative flex items-center'>
-				<Button className='gap-1.5' onClick={handleOpen} variant={isOpen ? 'default' : 'dark'}>
+				<Button className='gap-1.5' onClick={handleOpen} variant={isOpen ? 'secondary' : 'default'}>
 					{category.label}
 					<FaChevronDown
 						className={cn('h-4 w-4 transition-all', {

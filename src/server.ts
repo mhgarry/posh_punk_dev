@@ -18,7 +18,7 @@ const startServer = async () => {
 		initOptions: {
 			express: app,
 			onInit: async (cms) => {
-				cms.logger.info(`Admin URL: ${process.env.NEXT_PUBLIC_DOMAIN}${cms.getAdminURL()}`)
+				cms.logger.info(`Admin URL: ${cms.getAdminURL()}`)
 			},
 		},
 	})

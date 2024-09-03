@@ -1,4 +1,4 @@
-import { type ClassValue, clsx } from 'clsx'
+import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export function formatPrice(
 	price: number | string,
 	options: {
-		currency?: 'USD' | 'EUR' | 'GBP' | 'BDT'
+		currency?: 'USD' | 'EUR' | 'GBP' | 'JPY' | 'RUB' | 'CNY'
 		notation?: Intl.NumberFormatOptions['notation']
 	} = {},
 ) {
