@@ -11,7 +11,7 @@ export const Users: CollectionConfig = {
 				<div>
 					<h1>Verify your email</h1>
 					<p>Click the link below to verify your email address</p>
-					<a href="${process.env.NEXT_PUBLIC_DOMAIN}?token=${token}">Verify your email</a>
+					<a href="${process.env.NEXT_PUBLIC_DOMAIN}/verify-email?token=${token}">Verify your email</a>
 				</div>`
 			},
 		},
