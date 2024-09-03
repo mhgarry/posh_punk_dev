@@ -20,7 +20,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		<html lang='en' className='h-full' suppressHydrationWarning>
 			<body className={cn('relative h-full font-sans antialiased', inter.className)}>
 				<main className='relative flex flex-col min-h-screen'>
-					<ThemeProvider attribute='class' defaultTheme='system' enableSystem={true} disableTransitionOnChange={true}>
+					<ThemeProvider
+					attribute="class"
+						defaultTheme='system'
+						enableSystem={true}
+						
+					>
 						<Providers>
 							<Navbar />
 							<div className='flex-grow flex-1'>
