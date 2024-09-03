@@ -2,7 +2,7 @@
 'use client'
 
 import { Icons } from '@/components/icons'
-import { Button, buttonVariants } from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -10,8 +10,7 @@ import { cn } from '@/lib/utils'
 import { UserPenIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
-import { FaGithubAlt } from 'react-icons/fa'
-import { FaGoogle } from 'react-icons/fa'
+import { FaGithub, FaGoogle } from 'react-icons/fa6'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { z } from 'zod'
@@ -103,7 +102,7 @@ const Page = () => {
 
 										<div className='grid gap-2'>
 											<Button variant='outline' type='submit' className='gap-1.5'>
-												<FaGithubAlt className='h-4 w-4' /> Sign up with GithHub
+												<FaGithub className='h-4 w-4' /> Sign up with GithHub
 											</Button>
 										</div>
 									</div>
