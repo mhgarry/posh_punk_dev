@@ -22,7 +22,11 @@ const NavItem = ({ isAnyOpen, category, handleOpen, close, isOpen }: NavItemProp
 	return (
 		<div className='flex'>
 			<div className='relative flex items-center'>
-				<Button className='gap-1.5' onClick={handleOpen} variant={isOpen ? 'secondary' : 'default'}>
+				<Button
+					className={isOpen ? 'gap-1.5 border ' : 'gap-1.5 borer-primary'}
+					onClick={handleOpen}
+					variant={isOpen ? 'outline' : 'default'}
+				>
 					{category.label}
 					<FaChevronDown
 						className={cn('h-4 w-4 transition-all', {
@@ -33,7 +37,7 @@ const NavItem = ({ isAnyOpen, category, handleOpen, close, isOpen }: NavItemProp
 			</div>
 			{isOpen ? (
 				<div
-					className={cn('absolute inset-x-0 top-full text-sm text-foreground/80', {
+					className={cn('absolute inset-x-0 top-full text-sm ', {
 						'animate-in fade-in-10 slide-in-from-top-5': !isAnyOpen,
 					})}
 				>
@@ -43,10 +47,10 @@ const NavItem = ({ isAnyOpen, category, handleOpen, close, isOpen }: NavItemProp
 								<div className='col-span-4 start-1 grid grid-cols-3 gap-x-8'>
 									{category.featured.map((item) => (
 										<div key={item.value} className='relative group'>
-											<div className='relative aspect-video overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75'>
+											<div className='relative aspect-video overflow-hidden rounded-lg bg-secondary group-hover:opacity-75'>
 												<Image src={item.imageSrc} layout='fill' className='cover center' alt={item.label} />
 											</div>
-											<Link href={item.value} passHref className='mt-6 block text-foreground font-medium'>
+											<Link href={item.value} passHref className='mt-6 block  font-medium'>
 												{item.label}
 											</Link>
 											<p className='mt-1'>Shop {item.value}</p>

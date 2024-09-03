@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react' // Import the React module
 
 import Link from 'next/link'
@@ -15,7 +17,7 @@ const Navbar = async () => {
 		<div className='bg-background sticky z-50 top-0 inset-x-0 h-16'>
 			<header className='relative bg-background'>
 				<MaxWidthWrapper>
-					<div className='border-b border-secondary'>
+					<div className='border-b border-gray-200'>
 						<div className='flex h-16 items-center'>
 							{/* <MobileNav /> */}
 
@@ -30,7 +32,7 @@ const Navbar = async () => {
 							</div>
 
 							<div className='ml-auto flex items-center'>
-								<div className='hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-4'>
+								<div className='hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6'>
 									{user ? null : (
 										<Link
 											href='/log-in'
@@ -65,7 +67,6 @@ const Navbar = async () => {
 									<div className='ml-4 flow-root lg:ml-6'>
 										<Cart />
 									</div>
-									<span className='h-6 w-px bg-primary' />
 									<div className='ml-4 flow-root lg:ml-6'>
 										<ThemeToggle />
 									</div>
