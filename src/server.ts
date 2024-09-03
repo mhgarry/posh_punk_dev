@@ -18,7 +18,7 @@ const startServer = async () => {
 		initOptions: {
 			express: app,
 			onInit: async (cms) => {
-				cms.logger.info(`Admin URL: ${cms.getAdminURL()}`)
+				cms.logger.info(`Admin URL: ${process.env.NEXT_PUBLIC_DOMAIN}${cms.getAdminURL()}`)
 			},
 		},
 	})
@@ -37,7 +37,7 @@ const startServer = async () => {
 		payload.logger.info(`Next.js is ready `)
 
 		app.listen(PORT, async () => {
-			payload.logger.info(`Payload server is listening on ${process.env.NEXT_API_URL}`)
+			payload.logger.info(`Payload server is listening on ${process.env.NEXT_PUBLIC_DOMAIN}`)
 		})
 	})
 }

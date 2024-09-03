@@ -10,7 +10,8 @@ import { cn } from '@/lib/utils'
 import { UserPenIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
-import { GitHub } from 'react-feather'
+import { FaGithubAlt } from 'react-icons/fa'
+import { FaGoogle } from 'react-icons/fa'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { z } from 'zod'
@@ -102,7 +103,7 @@ const Page = () => {
 
 										<div className='grid gap-2'>
 											<Button variant='outline' type='submit' className='gap-1.5'>
-												<GitHub className='h-4 w-4' /> Sign up with GithHub
+												<FaGithubAlt className='h-4 w-4' /> Sign up with GithHub
 											</Button>
 										</div>
 									</div>
