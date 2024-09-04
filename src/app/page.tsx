@@ -60,10 +60,10 @@ export default function Home() {
 							{perks.map((perk) => (
 								<Card
 									key={perk.title}
-									className='text-center md:flex md:items-start md:text-left lg:block lg:text-center p-4  bg-background rounded-lg'
+									className='text-center md:flex md:items-start md:text-left lg:block lg:text-center p-4  bg-card rounded-lg'
 								>
 									<div className='md:flex-shrink-0 flex justify-center'>
-										<div className='h-16 w-16 flex items-center justify-center rounded-full bg-rounded-full bg-muted'>
+										<div className='h-16 w-16 flex items-center justify-center rounded-full bg-rounded-full bg-primary'>
 											{<perk.Icon className='w-1/3 h-1/3' />}
 										</div>
 									</div>
@@ -73,7 +73,7 @@ export default function Home() {
 									</CardHeader>
 									<CardContent className='mt-6 sm:mt-4 lg:mt-6'>
 										<Link href='/products'>
-											<Button variant='outline'>Shop {perk.title}</Button>
+											<Button variant='default'>Shop {perk.title}</Button>
 										</Link>
 									</CardContent>
 								</Card>
