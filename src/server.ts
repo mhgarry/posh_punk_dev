@@ -5,13 +5,19 @@ import { getPayloadClient } from './get-payload'
 import { nextApp, nextHandler } from './next-utils'
 import * as trpcExpress from '@trpc/server/adapters/express'
 import { appRouter } from './trpc'
+import { inferAsyncReturnType } from '@trpc/server'
 const app = express()
 const PORT = Number(process.env.PORT) || 3000
 
-const createContext = ({ req, res }: trpcExpress.CreateExpressContextOptions) => ({
+const createContext = ({
+	req,
+	res,
+}: trpcExpress.CreateExpressContextOptions) => ({
 	req,
 	res,
 })
+
+export type ExpressContext = inferAsyncReturnType<typeof createContext>
 
 const startServer = async () => {
 	const payload = await getPayloadClient({
@@ -37,7 +43,9 @@ const startServer = async () => {
 		payload.logger.info(`Next.js is ready `)
 
 		app.listen(PORT, async () => {
-			payload.logger.info(`Payload server is listening on ${process.env.NEXT_PUBLIC_DOMAIN}`)
+			payload.logger.info(
+				`Payload server is listening on ${process.env.NEXT_PUBLIC_DOMAIN}`,
+			)
 		})
 	})
 }
