@@ -6,6 +6,7 @@ import '@/styles/globals.css'
 import Navbar from '@/components/navbar'
 import Providers from '@/components/providers'
 import ThemeProvider from '@/components/theme-provider'
+import { Toaster } from 'sonner'
 const inter = Inter({
 	subsets: ['latin'],
 })
@@ -20,12 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		<html lang='en' className='h-full' suppressHydrationWarning>
 			<body className={cn('relative h-full font-sans antialiased', inter.className)}>
 				<main className='relative flex flex-col min-h-screen'>
-					<ThemeProvider
-					attribute="class"
-						defaultTheme='system'
-						enableSystem={true}
-						
-					>
+					<ThemeProvider attribute='class' defaultTheme='system' enableSystem={true}>
 						<Providers>
 							<Navbar />
 							<div className='flex-grow flex-1'>
@@ -36,6 +32,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						</Providers>
 					</ThemeProvider>
 				</main>
+
+				<Toaster position='top-center' richColors />
 			</body>
 		</html>
 	)

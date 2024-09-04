@@ -15,6 +15,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import { z } from 'zod'
 import { trpc } from '@/trpc/client'
+import { toast } from 'sonner'
+import { error } from 'console'
 
 const Page = () => {
 	const AuthCredentialsValidator = z.object({
@@ -35,7 +37,13 @@ const Page = () => {
 		resolver: zodResolver(AuthCredentialsValidator),
 	})
 
-	const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({})
+	const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
+		onError: (err) => {
+			if (err.data?.code === 'CONFLICT') {
+				toast.error('User already exists')
+			}
+		},
+	})
 
 	const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
 		mutate({ email, password })
