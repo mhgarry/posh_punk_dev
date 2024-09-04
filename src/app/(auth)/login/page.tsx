@@ -38,7 +38,7 @@ const Page = () => {
 	}
 
 	const continueAsBuyer = () => {
-		router.replace('/log-in', undefined)
+		router.replace('/login', undefined)
 	}
 
 	const {
