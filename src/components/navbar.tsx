@@ -5,10 +5,14 @@ import NavItems from './nav-items'
 import { buttonVariants } from './ui/button'
 import Cart from './cart'
 import ThemeToggle from './theme-toggle'
+import { getServerSideUser } from '@/lib/payload-utils'
+import { cookies } from 'next/headers'
 
-const Navbar = () => {
+const Navbar = async () => {
+	// const nextCookies = cookies()
+	// const { user } = await getServerSideUser(nextCookies)
 	const user = null
-
+	// const user = true
 	return (
 		<div className='bg-background sticky z-50 top-0 inset-x-0 h-16'>
 			<header className='relative bg-background'>
