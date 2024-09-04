@@ -50,16 +50,14 @@ const Page = () => {
 	})
 
 	const { mutate: signIn, isLoading } = trpc.auth.signIn.useMutation({
-		onSuccess: async () => {
-			toast.success('Signed in successfully')
-
+		onSuccess: () => {
+			toast.success('Logged in successfully')
 			router.refresh()
 
 			if (origin) {
 				router.push(`/${origin}`)
 				return
 			}
-
 			if (isSeller) {
 				router.push('/sell')
 				return
@@ -69,7 +67,7 @@ const Page = () => {
 		},
 		onError: (err) => {
 			if (err.data?.code === 'UNAUTHORIZED') {
-				toast.error('Invalid email or password.')
+				toast.error('Invalid email or password')
 			}
 		},
 	})
