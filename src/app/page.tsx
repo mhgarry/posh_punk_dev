@@ -35,7 +35,7 @@ export default function Home() {
 		<section className='flex flex-col bg-background mx-auto max-w-7xl items-center'>
 			<section>
 				<MaxWidthWrapper>
-					<div className='py-6 rounded-lg mx-auto text-center flex flex-col bg-background  shadow-sm items-left max-w-7xl'>
+					<div className='py-6 rounded-lg mx-auto text-center flex flex-col bg-background  shadow-sm items-left max-w-7xl '>
 						<div className='flex flex-col items-center justify-center text-center'>
 							{' '}
 							<h1 className='text-4xl font-bold font-tracking-tight text-primary text-center sm:text-6xl mb-2'>
