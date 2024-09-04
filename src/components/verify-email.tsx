@@ -2,7 +2,7 @@
 'use client'
 
 import { trpc } from '@/trpc/client'
-import { XCircleIcon, Loader, LoaderCircle } from 'lucide-react'
+import { XCircleIcon, Loader } from 'lucide-react'
 import Image from 'next/image'
 import { buttonVariants } from './ui/button'
 import Link from 'next/link'
@@ -19,8 +19,12 @@ const VerifyEmail = ({ token }: VerifyEmailProps) => {
 		return (
 			<div className='flex flex-col items-center gap-2'>
 				<XCircleIcon className='h-16 w-16 text-red-500' />
-				<h3 className='text-xl font-semibold text-red-500'>Verification failed</h3>
-				<p className='text-gray-500 text-center'>The verification link is invalid or has expired Please try again</p>
+				<h3 className='text-xl font-semibold text-red-500'>
+					Verification failed
+				</h3>
+				<p className='text-gray-500 text-center'>
+					The verification link is invalid or has expired Please try again
+				</p>
 			</div>
 		)
 	}
@@ -28,10 +32,19 @@ const VerifyEmail = ({ token }: VerifyEmailProps) => {
 		return (
 			<div className='flex flex-col items-center gap-2'>
 				<div className='relative mb-4 h-60 w-60 text-gray-500'>
-					<Image src='/user-accepted.png' layout='fill' alt='User Accepted Image' />
+					<Image
+						src='/user-accepted.png'
+						layout='fill'
+						alt='User Accepted Image'
+					/>
 				</div>
-				<h3 className='font-semibold text-2xl text-primary'> You&apos;re all set!</h3>
-				<p className='text-gray-500 text-center'>Your email has been verified. You can now login to your account.</p>
+				<h3 className='font-semibold text-2xl text-primary'>
+					{' '}
+					You&apos;re all set!
+				</h3>
+				<p className='text-gray-500 text-center'>
+					Your email has been verified. You can now login to your account.
+				</p>
 				<Link href='/login' className={buttonVariants({ className: 'mt-4' })}>
 					Login
 				</Link>
