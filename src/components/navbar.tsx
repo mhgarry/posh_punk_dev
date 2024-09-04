@@ -9,10 +9,9 @@ import { getServerSideUser } from '@/lib/payload-utils'
 import { cookies } from 'next/headers'
 
 const Navbar = async () => {
-	// const nextCookies = cookies()
-	// const { user } = await getServerSideUser(nextCookies)
-	const user = null
-	// const user = true
+	const nextCookies = cookies()
+	const { user } = await getServerSideUser(nextCookies)
+
 	return (
 		<div className='bg-background sticky z-50 top-0 inset-x-0 h-16'>
 			<header className='relative bg-background'>
@@ -57,7 +56,7 @@ const Navbar = async () => {
 										</Link>
 									)}
 
-									{user ? <span className='h-6 w-px bg-primary' /> : null}
+									{user ? null : <span className='h-6 w-px bg-primary' />}
 									{user ? null : (
 										<div className='flex lg:ml-6'>
 											<span className='h-6 w-px bg-primary' />
