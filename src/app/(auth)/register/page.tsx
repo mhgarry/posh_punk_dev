@@ -92,6 +92,7 @@ const Page = () => {
 											aria-label='email input'
 										/>
 									</div>
+									{errors?.email && <p className='text-red-500'>{errors.email.message}</p>}
 									<div className='grid gap-2'>
 										<Label htmlFor='password'>Password</Label>
 										<Input
@@ -105,6 +106,7 @@ const Page = () => {
 												'focus-visible:ring-red-500': errors.password,
 											})}
 										/>
+										{errors?.password && <p className='text-red-500'>{errors.password.message}</p>}
 									</div>
 									<div className='grid gap-2'>
 										<Button
