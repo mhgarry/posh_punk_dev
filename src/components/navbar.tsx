@@ -43,6 +43,9 @@ const Navbar = async () => {
 											Login
 										</Link>
 									)}
+									<div className='ml-4 flow-root lg:ml-6'>
+										<ThemeToggle />
+									</div>
 									{user ? null : <span className='h-6 w-px bg-primary' />}
 									{user ? (
 										<UserAccountNav user={user} />
@@ -66,9 +69,6 @@ const Navbar = async () => {
 
 									<div className='ml-4 flow-root lg:ml-6'>
 										<Cart />
-									</div>
-									<div className='ml-4 flow-root lg:ml-6'>
-										<ThemeToggle />
 									</div>
 								</div>
 							</div>

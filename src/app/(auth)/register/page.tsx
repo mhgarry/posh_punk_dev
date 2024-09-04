@@ -3,7 +3,13 @@
 
 import { Icons } from '@/components/icons'
 import { Button, buttonVariants } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
@@ -72,8 +78,12 @@ const Page = () => {
 						<Card className='mx-auto w-full flex flex-col items-center'>
 							<CardHeader className='flex flex-col items-center'>
 								<Icons.logo className='h-24 w-24' />
-								<CardTitle className='text-4xl text-center font-antialiased text-primary'>Create Account</CardTitle>
-								<CardDescription>Join PoshPunk today and start shopping for your treasure.</CardDescription>
+								<CardTitle className='text-4xl text-center font-antialiased text-primary'>
+									Create Account
+								</CardTitle>
+								<CardDescription>
+									Join PoshPunk today and start shopping for your treasure.
+								</CardDescription>
 							</CardHeader>
 							<CardContent>
 								<div className='grid gap-4'>
@@ -92,7 +102,9 @@ const Page = () => {
 											aria-label='email input'
 										/>
 									</div>
-									{errors?.email && <p className='text-red-500'>{errors.email.message}</p>}
+									{errors?.email && (
+										<p className='text-red-500'>{errors.email.message}</p>
+									)}
 									<div className='grid gap-2'>
 										<Label htmlFor='password'>Password</Label>
 										<Input
@@ -106,7 +118,9 @@ const Page = () => {
 												'focus-visible:ring-red-500': errors.password,
 											})}
 										/>
-										{errors?.password && <p className='text-red-500'>{errors.password.message}</p>}
+										{errors?.password && (
+											<p className='text-red-500'>{errors.password.message}</p>
+										)}
 									</div>
 									<div className='grid gap-2'>
 										<Button
@@ -119,14 +133,22 @@ const Page = () => {
 									</div>
 									<div className='grid grid-cols-2 gap-4'>
 										<div className='grid gap-2'>
-											<Button variant='outline' type='submit' className='gap-1.5'>
+											<Button
+												variant='outline'
+												type='submit'
+												className='gap-1.5'
+											>
 												<FaGoogle w-4 h-4 />
 												Sign up with Google
 											</Button>
 										</div>
 
 										<div className='grid gap-2'>
-											<Button variant='outline' type='submit' className='gap-1.5'>
+											<Button
+												variant='outline'
+												type='submit'
+												className='gap-1.5'
+											>
 												<FaGithub className='h-4 w-4' /> Sign up with GithHub
 											</Button>
 										</div>
@@ -134,7 +156,7 @@ const Page = () => {
 								</div>
 								<div className='mt-4 text-center text-sm'>
 									<Link
-										href='/log-in'
+										href='/login'
 										className={buttonVariants({
 											variant: 'link',
 											className: 'gap-1.5 underline',

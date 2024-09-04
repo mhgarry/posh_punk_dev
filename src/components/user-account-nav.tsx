@@ -8,8 +8,16 @@ import {
 	DropdownMenuTrigger,
 } from './ui/dropdown-menu'
 import { UserCircle } from 'lucide-react'
+import {
+	DropdownMenuItem,
+	DropdownMenuSeparator,
+} from '@radix-ui/react-dropdown-menu'
+import Link from 'next/link'
+import { useAuth } from '@/hooks/use-auth'
+import { sign } from 'crypto'
 
 const UserAccountNav = ({ user }: { user: User }) => {
+	const { signOut } = useAuth()
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild className='overflow-visible'>
@@ -23,6 +31,16 @@ const UserAccountNav = ({ user }: { user: User }) => {
 						<p className='font-medium text-sm text-foreground'>{user.email}</p>
 					</div>
 				</div>
+
+				<DropdownMenuSeparator />
+				<DropdownMenuItem>
+					<Link href='/sell' onClick={signOut}>
+						Dashboard
+					</Link>
+				</DropdownMenuItem>
+				<DropdownMenuItem className='cursor-pointer' onClick={signOut}>
+					Log Out
+				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>
 	)
