@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
-import Navbar from '@/components/navbar'
+import { default as Navbar } from '@/components/navbar'
 import Providers from '@/components/providers'
 import ThemeProvider from '@/components/theme-provider'
 import { Toaster } from 'sonner'
@@ -13,7 +13,8 @@ const inter = Inter({
 
 const meta: Metadata = {
 	title: 'Posh Punk Digital Flea Market',
-	description: 'A space for digital artists, collectors, DIYers, and makers to sell their creations.',
+	description:
+		'Posh Punk Digital Emporium for vintage fashion, handmade goods, digital arts, DIY supplies, music, vintage toys, and more.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -21,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		<html lang='en' className='h-full' suppressHydrationWarning>
 			<body className={cn('relative h-full font-sans antialiased', inter.className)}>
 				<main className='relative flex flex-col min-h-screen'>
-					<ThemeProvider attribute='class' defaultTheme='system' enableSystem={true}>
+					<ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
 						<Providers>
 							<Navbar />
 							<div className='flex-grow flex-1'>

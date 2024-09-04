@@ -1,9 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
+
 .yarn/install-state.gz
 
 # testing
@@ -15,6 +17,7 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -38,3 +41,14 @@ yarn-error.log*
 next-env.d.ts
 .vscode
 .vscode/*
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+bun-logs/
+logs
+*.log
+npm-debug.log*
+--help
+.git
+.vscode

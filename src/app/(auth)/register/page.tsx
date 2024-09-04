@@ -2,12 +2,12 @@
 'use client'
 
 import { Icons } from '@/components/icons'
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
-import { UserPenIcon } from 'lucide-react'
+import { UserPenIcon, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { FaGithub, FaGoogle } from 'react-icons/fa6'
@@ -112,7 +112,7 @@ const Page = () => {
 										<Button
 											variant='default'
 											type='submit'
-											className='w-full flex flex-row gap-4 align-center items-center'
+											className='w-full flex flex-row gap-1.5 align-center items-center text-lg'
 										>
 											Create an account <UserPenIcon />
 										</Button>
@@ -133,9 +133,15 @@ const Page = () => {
 									</div>
 								</div>
 								<div className='mt-4 text-center text-sm'>
-									Already have an account?{' '}
-									<Link href='#' className='underline'>
-										Sign in
+									<Link
+										href='/log-in'
+										className={buttonVariants({
+											variant: 'link',
+											className: 'gap-1.5 underline',
+										})}
+									>
+										Already have an account? Login
+										<ArrowRight />
 									</Link>
 								</div>
 							</CardContent>

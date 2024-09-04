@@ -1,7 +1,3 @@
-'use client'
-
-import React from 'react' // Import the React module
-
 import Link from 'next/link'
 import MaxWidthWrapper from './maxWidthWrapper'
 import { Icons } from './icons'
@@ -10,7 +6,7 @@ import { buttonVariants } from './ui/button'
 import Cart from './cart'
 import ThemeToggle from './theme-toggle'
 
-const Navbar = async () => {
+const Navbar = () => {
 	const user = null
 
 	return (
