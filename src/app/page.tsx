@@ -9,7 +9,7 @@ import Link from 'next/link'
 
 import { FaPalette } from 'react-icons/fa6'
 import { FaPenNib } from 'react-icons/fa6'
-
+import { FaArrowRight } from 'react-icons/fa6'
 import { FaHandHoldingHeart } from 'react-icons/fa'
 
 const perks = [
@@ -35,19 +35,19 @@ export default function Home() {
 		<section className='flex flex-col bg-background mx-auto max-w-7xl items-center'>
 			<section>
 				<MaxWidthWrapper>
-					<div className='py-6 rounded-lg mx-auto text-center flex flex-col bg-background  shadow-sm items-left max-w-7xl '>
+					<div className='py-6 rounded-lg mx-auto text-center flex flex-col shadow-sm items-left max-w-7xl '>
 						<div className='flex flex-col items-center justify-center text-center'>
 							{' '}
-							<h1 className='text-4xl font-bold font-tracking-tight text-primary text-center sm:text-6xl mb-2'>
+							<h1 className='text-3xl font-bold font-tracking-tight text-primary text-center sm:text-4xl mb-2'>
 								Posh Punk
 							</h1>
-							<h2 className='font-semibold text-foreground text-2xl sm:text-3xl'>Digital Emporium</h2>
+							<h2 className=' text-foreground text-2xl sm:text-3xl'>Digital Emporium</h2>
 							<p className='mt-2 text-lg  max-w-prose text-center'>
-								A space for digital artists, collectors, DIYers, and makers to sell their creations.
+								A space for collectors.
 							</p>
 							<div className='flex flex-col sm:flex-row gap-4 mt-2'>
 								<Link href='/products'>
-									<Button variant='pink'>What Will Find You Today?</Button>
+									<Button variant='link'>What Will Find You Today? <FaArrowRight className="ml-1" /></Button>
 								</Link>
 							</div>
 						</div>
@@ -60,20 +60,20 @@ export default function Home() {
 							{perks.map((perk) => (
 								<Card
 									key={perk.title}
-									className='text-center md:flex md:items-start md:text-left lg:block lg:text-center p-4  bg-card rounded-lg'
+									className='text-center bg-background md:flex md:items-start md:text-left lg:block lg:text-center p-4  rounded-lg border-none'
 								>
 									<div className='md:flex-shrink-0 flex justify-center'>
-										<div className='h-16 w-16 flex items-center justify-center rounded-full bg-rounded-full bg-primary'>
+										<div className='h-16 w-16 flex items-center justify-center rounded-full bg-rounded-full bg-secondary text-white'>
 											{<perk.Icon className='w-1/3 h-1/3' />}
 										</div>
 									</div>
 									<CardHeader className='mt-6 md:ml-4 md:mt-0 lg:ml-0 lg:mt-6'>
-										<h3 className='text- font-medium'>{perk.title}</h3>
+										<h3 className='text-primary font-bold'>{perk.title}</h3>
 										<CardContent className='mt-3 text-sm  sm:p-0'>{perk.description}</CardContent>
 									</CardHeader>
 									<CardContent className='mt-6 sm:mt-4 lg:mt-6'>
 										<Link href='/products'>
-											<Button variant='default'>Shop {perk.title}</Button>
+											<Button variant='pink'>Shop {perk.title}</Button>
 										</Link>
 									</CardContent>
 								</Card>

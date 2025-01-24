@@ -29,7 +29,7 @@ const NavItems = () => {
 	useOnClick(navRef, () => setActiveIndex(null))
 
 	return (
-		<div className='flex gap-4 h-full' ref={navRef}>
+		<div className='flex gap-6 h-full' ref={navRef}>
 			{POSHPUNK_CATEGORIES.map((category, i) => {
 				const handleOpen = () => {
 					if (activeIndex === i) {
