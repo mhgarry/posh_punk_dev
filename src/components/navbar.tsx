@@ -25,7 +25,7 @@ const Navbar = async () => {
 								<Link href='/'>
 									<Icons.logo className='h-10 w-10' />
 								</Link>
-								<div></div>
+					
 							</div>
 							<div className='hidden lg:flex lg:flex-1  lg:items-center lg:justify-between lg:space-x-6'>
 								<NavItems />
@@ -37,35 +37,36 @@ const Navbar = async () => {
 										<Link
 											href='/log-in'
 											className={buttonVariants({
-												variant: 'default',
+												variant: 'secondary',
 											})}
 										>
 											Login
 										</Link>
 									)}
-									<div className='ml-4 flow-root lg:ml-6'>
-										<ThemeToggle />
-									</div>
-									{user ? null : <span className='h-6 w-px bg-primary' />}
+				
 									{user ? (
 										<UserAccountNav user={user} />
 									) : (
 										<Link
 											href='/register'
 											className={buttonVariants({
-												variant: 'default',
+												variant: 'secondary',
 											})}
 										>
 											Register
 										</Link>
 									)}
-
+											{user ? null : <span className='h-6 w-px bg-primary' />}
+									<div className='ml-4 flow-root lg:ml-6'>
+										<ThemeToggle />
+									</div>
+{/* 
 									{user ? null : <span className='h-6 w-px bg-primary' />}
 									{user ? null : (
 										<div className='flex lg:ml-6'>
 											<span className='h-6 w-px bg-primary' />
 										</div>
-									)}
+									)} */}
 
 									<div className='ml-4 flow-root lg:ml-6'>
 										<Cart />

@@ -25,7 +25,7 @@ const NavItem = ({ isAnyOpen, category, handleOpen, close, isOpen }: NavItemProp
 				<Button
 					className={isOpen ? 'gap-1.5 border ' : 'gap-1.5 borer-primary'}
 					onClick={handleOpen}
-					variant={isOpen ? 'outline' : 'default'}
+					variant={isOpen ? 'outline' : 'pink'}
 				>
 					{category.label}
 					<FaChevronDown
