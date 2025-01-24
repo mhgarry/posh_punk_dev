@@ -1,16 +1,16 @@
 /* eslint-disable react/react-in-jsx-scope */
-import VerifyEmail from '@/components/verify-email'
-import Image from 'next/image'
+import VerifyEmail from '@/components/verify-email';
+import Image from 'next/image';
 
 interface PageProps {
 	searchParams: {
-		[key: string]: string | string[] | undefined
-	}
+		[key: string]: string | string[] | undefined;
+	};
 }
 
 const VerifyEmailPage = ({ searchParams }: PageProps) => {
-	const token = searchParams.token
-	const toEmail = searchParams.to
+	const token = searchParams.token;
+	const toEmail = searchParams.to;
 
 	return (
 		<div className='container relative flex pt-20 flex-col items-center justify-center lg:px-0'>
@@ -27,14 +27,15 @@ const VerifyEmailPage = ({ searchParams }: PageProps) => {
 						<h3 className='text-lg text-center'>Verification Email Sent</h3>
 						{toEmail && (
 							<p className='text-primary text-center'>
-								Please check your email <span className='font-semibold'>{toEmail}</span> to verify your email address.
+								Please check your email <span className='font-semibold'>{toEmail}</span> to verify your
+								email address.
 							</p>
 						)}
 					</div>
 				)}
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default VerifyEmailPage
+export default VerifyEmailPage;

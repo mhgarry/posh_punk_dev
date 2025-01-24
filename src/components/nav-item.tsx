@@ -1,21 +1,21 @@
-'use client'
+'use client';
 
-import { POSHPUNK_CATEGORIES } from '@/config'
-import { Button } from './ui/button'
-import { FaChevronDown } from 'react-icons/fa'
-import { cn } from '@/lib/utils'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react' // Add this line
+import { POSHPUNK_CATEGORIES } from '@/config';
+import { Button } from './ui/button';
+import { FaChevronDown } from 'react-icons/fa';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react'; // Add this line
 
-type Category = (typeof POSHPUNK_CATEGORIES)[number]
+type Category = (typeof POSHPUNK_CATEGORIES)[number];
 
 interface NavItemProps {
-	category: Category
-	handleOpen: () => void
-	close: () => void
-	isOpen: boolean
-	isAnyOpen: boolean
+	category: Category;
+	handleOpen: () => void;
+	close: () => void;
+	isOpen: boolean;
+	isAnyOpen: boolean;
 }
 
 const NavItem = ({ isAnyOpen, category, handleOpen, close, isOpen }: NavItemProps) => {
@@ -48,7 +48,12 @@ const NavItem = ({ isAnyOpen, category, handleOpen, close, isOpen }: NavItemProp
 									{category.featured.map((item) => (
 										<div key={item.value} className='relative group'>
 											<div className='relative aspect-video overflow-hidden rounded-lg bg-secondary group-hover:opacity-75'>
-												<Image src={item.imageSrc} layout='fill' className='cover center' alt={item.label} />
+												<Image
+													src={item.imageSrc}
+													layout='fill'
+													className='cover center'
+													alt={item.label}
+												/>
 											</div>
 											<Link href={item.value} passHref className='mt-6 block  font-medium'>
 												{item.label}
@@ -63,7 +68,7 @@ const NavItem = ({ isAnyOpen, category, handleOpen, close, isOpen }: NavItemProp
 				</div>
 			) : null}
 		</div>
-	)
-}
+	);
+};
 
-export default NavItem
+export default NavItem;

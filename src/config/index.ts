@@ -107,4 +107,4 @@ export const POSHPUNK_CATEGORIES = [
 			},
 		],
 	},
-]
+];

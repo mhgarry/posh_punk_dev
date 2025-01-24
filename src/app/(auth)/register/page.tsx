@@ -1,28 +1,22 @@
 /* eslint-disable react/react-in-jsx-scope */
-'use client'
+'use client';
 
-import { Icons } from '@/components/icons'
-import { Button, buttonVariants } from '@/components/ui/button'
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { cn } from '@/lib/utils'
-import { UserPenIcon, ArrowRight } from 'lucide-react'
-import Link from 'next/link'
-import { useForm } from 'react-hook-form'
-import { FaGithub, FaGoogle } from 'react-icons/fa6'
-import { zodResolver } from '@hookform/resolvers/zod'
+import { Icons } from '@/components/icons';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { cn } from '@/lib/utils';
+import { UserPenIcon, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { useForm } from 'react-hook-form';
+import { FaGithub, FaGoogle } from 'react-icons/fa6';
+import { zodResolver } from '@hookform/resolvers/zod';
 
-import { z, ZodError } from 'zod'
-import { trpc } from '@/trpc/client'
-import { toast } from 'sonner'
-import { useRouter } from 'next/navigation'
+import { z, ZodError } from 'zod';
+import { trpc } from '@/trpc/client';
+import { toast } from 'sonner';
+import { useRouter } from 'next/navigation';
 
 const Page = () => {
 	const AuthCredentialsValidator = z.object({
@@ -31,9 +25,9 @@ const Page = () => {
 		// confirmPassword: z.string().min(8, 'Password must be at least 8 characters').refine(data => data === data.password, {
 		//   message: 'Passwords do not match',
 		// }),
-	})
+	});
 
-	type TAuthCredentialsValidator = z.infer<typeof AuthCredentialsValidator>
+	type TAuthCredentialsValidator = z.infer<typeof AuthCredentialsValidator>;
 
 	const {
 		register,
@@ -41,34 +35,34 @@ const Page = () => {
 		formState: { errors },
 	} = useForm<TAuthCredentialsValidator>({
 		resolver: zodResolver(AuthCredentialsValidator),
-	})
+	});
 
-	const router = useRouter()
+	const router = useRouter();
 
 	const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
 		onError: (err) => {
 			if (err.data?.code === 'CONFLICT') {
-				toast.error('User already exists')
+				toast.error('User already exists');
 
-				return
+				return;
 			}
 
 			if (err instanceof ZodError) {
-				toast.error(err.issues[0].message)
+				toast.error(err.issues[0].message);
 
-				return
+				return;
 			}
-			toast.error('Something went wrong. Please try again.')
+			toast.error('Something went wrong. Please try again.');
 		},
 		onSuccess: ({ sentToEmail }) => {
-			toast.success(`Verification email sent to ${sentToEmail}.`)
-			router.push('/verify-email?to=' + sentToEmail)
+			toast.success(`Verification email sent to ${sentToEmail}.`);
+			router.push('/verify-email?to=' + sentToEmail);
 		}, // Redirect to verify email page with email
-	})
+	});
 
 	const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
-		mutate({ email, password })
-	}
+		mutate({ email, password });
+	};
 
 	return (
 		<>
@@ -102,9 +96,7 @@ const Page = () => {
 											aria-label='email input'
 										/>
 									</div>
-									{errors?.email && (
-										<p className='text-red-500'>{errors.email.message}</p>
-									)}
+									{errors?.email && <p className='text-red-500'>{errors.email.message}</p>}
 									<div className='grid gap-2'>
 										<Label htmlFor='password'>Password</Label>
 										<Input
@@ -118,9 +110,7 @@ const Page = () => {
 												'focus-visible:ring-red-500': errors.password,
 											})}
 										/>
-										{errors?.password && (
-											<p className='text-red-500'>{errors.password.message}</p>
-										)}
+										{errors?.password && <p className='text-red-500'>{errors.password.message}</p>}
 									</div>
 									<div className='grid gap-2'>
 										<Button
@@ -133,22 +123,14 @@ const Page = () => {
 									</div>
 									<div className='grid grid-cols-2 gap-4'>
 										<div className='grid gap-2'>
-											<Button
-												variant='outline'
-												type='submit'
-												className='gap-1.5'
-											>
+											<Button variant='outline' type='submit' className='gap-1.5'>
 												<FaGoogle w-4 h-4 />
 												Sign up with Google
 											</Button>
 										</div>
 
 										<div className='grid gap-2'>
-											<Button
-												variant='outline'
-												type='submit'
-												className='gap-1.5'
-											>
+											<Button variant='outline' type='submit' className='gap-1.5'>
 												<FaGithub className='h-4 w-4' /> Sign up with GithHub
 											</Button>
 										</div>
@@ -172,6 +154,6 @@ const Page = () => {
 				</form>
 			</div>
 		</>
-	)
-}
-export default Page
+	);
+};
+export default Page;

@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 @layer base {
-:root {
+	:root {
 		--background: 292 100% 95%;
 		--foreground: 292 5% 10%;
 		--card: 292 50% 90%;

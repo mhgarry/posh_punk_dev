@@ -1,17 +1,17 @@
 /* eslint-disable react/react-in-jsx-scope */
-'use client'
+'use client';
 
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { cn } from '@/lib/utils'
-import { Paintbrush } from 'lucide-react'
-import Link from 'next/link'
-import { useMemo, useState } from 'react'
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { cn } from '@/lib/utils';
+import { Paintbrush } from 'lucide-react';
+import Link from 'next/link';
+import { useMemo, useState } from 'react';
 
 export function PickerExample() {
-	const [background, setBackground] = useState('#B4D455')
+	const [background, setBackground] = useState('#B4D455');
 
 	return (
 		<div
@@ -20,7 +20,7 @@ export function PickerExample() {
 		>
 			<GradientPicker background={background} setBackground={setBackground} />
 		</div>
-	)
+	);
 }
 
 export function GradientPicker({
@@ -28,11 +28,11 @@ export function GradientPicker({
 	setBackground,
 	className,
 }: {
-	background: string
-	setBackground: (background: string) => void
-	className?: string
+	background: string;
+	setBackground: (background: string) => void;
+	className?: string;
 }) {
-	const solids = ['#E2E2E2', '#ff75c3', '#ffa647', '#ffe83f', '#9fff5b', '#70e2ff', '#cd93ff', '#09203f']
+	const solids = ['#E2E2E2', '#ff75c3', '#ffa647', '#ffe83f', '#9fff5b', '#70e2ff', '#cd93ff', '#09203f'];
 
 	const gradients = [
 		'linear-gradient(to top left,#accbee,#e7f0fd)',
@@ -51,20 +51,20 @@ export function GradientPicker({
 		'linear-gradient(to top left,#40E0D0,#FF8C00,#FF0080)',
 		'linear-gradient(to top left,#fcc5e4,#fda34b,#ff7882,#c8699e,#7046aa,#0c1db8,#020f75)',
 		'linear-gradient(to top left,#ff75c3,#ffa647,#ffe83f,#9fff5b,#70e2ff,#cd93ff)',
-	]
+	];
 
 	const images = [
 		'url(https://images.unsplash.com/photo-1691200099282-16fd34790ade?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=90)',
 		'url(https://images.unsplash.com/photo-1691226099773-b13a89a1d167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=90',
 		'url(https://images.unsplash.com/photo-1688822863426-8c5f9b257090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=90)',
 		'url(https://images.unsplash.com/photo-1691225850735-6e4e51834cad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=90)',
-	]
+	];
 
 	const defaultTab = useMemo(() => {
-		if (background.includes('url')) return 'image'
-		if (background.includes('gradient')) return 'gradient'
-		return 'solid'
-	}, [background])
+		if (background.includes('url')) return 'image';
+		if (background.includes('gradient')) return 'gradient';
+		return 'solid';
+	}, [background]);
 
 	return (
 		<Popover>
@@ -79,7 +79,10 @@ export function GradientPicker({
 				>
 					<div className='w-full flex items-center gap-2'>
 						{background ? (
-							<div className='h-4 w-4 rounded !bg-center !bg-cover transition-all' style={{ background }}></div>
+							<div
+								className='h-4 w-4 rounded !bg-center !bg-cover transition-all'
+								style={{ background }}
+							></div>
 						) : (
 							<Paintbrush className='h-4 w-4' />
 						)}
@@ -126,7 +129,11 @@ export function GradientPicker({
 
 						<GradientButton background={background}>
 							💡 Get more at{' '}
-							<Link href='https://gradient.page/css/ui-gradients' className='hover:underline font-bold' target='_blank'>
+							<Link
+								href='https://gradient.page/css/ui-gradients'
+								className='hover:underline font-bold'
+								target='_blank'
+							>
 								Gradient Page
 							</Link>
 						</GradientButton>
@@ -146,7 +153,11 @@ export function GradientPicker({
 
 						<GradientButton background={background}>
 							🎁 Get abstract{' '}
-							<Link href='https://gradient.page/wallpapers' className='hover:underline font-bold' target='_blank'>
+							<Link
+								href='https://gradient.page/wallpapers'
+								className='hover:underline font-bold'
+								target='_blank'
+							>
 								wallpapers
 							</Link>
 						</GradientButton>
@@ -163,7 +174,7 @@ export function GradientPicker({
 				/>
 			</PopoverContent>
 		</Popover>
-	)
+	);
 }
 
 const GradientButton = ({ background, children }: { background: string; children: React.ReactNode }) => {
@@ -171,5 +182,5 @@ const GradientButton = ({ background, children }: { background: string; children
 		<div className='p-0.5 rounded-md relative !bg-cover !bg-center transition-all' style={{ background }}>
 			<div className='bg-popover/80 rounded-md p-1 text-xs text-center'>{children}</div>
 		</div>
-	)
-}
+	);
+};

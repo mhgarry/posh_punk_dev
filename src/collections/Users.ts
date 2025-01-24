@@ -1,6 +1,6 @@
 // import { CollectionConfig } from 'payload/types'
 
-import { CollectionConfig } from 'payload/types'
+import { CollectionConfig } from 'payload/types';
 
 export const Users: CollectionConfig = {
 	slug: 'users',
@@ -12,7 +12,7 @@ export const Users: CollectionConfig = {
 					<h1>Verify your email</h1>
 					<p>Click the link below to verify your email address</p>
 					<a href="${process.env.NEXT_PUBLIC_DOMAIN}/verify-email?token=${token}">Verify your email</a>
-				</div>`
+				</div>`;
 			},
 		},
 	},
@@ -35,4 +35,4 @@ export const Users: CollectionConfig = {
 			],
 		},
 	],
-}
+};

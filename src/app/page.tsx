@@ -1,16 +1,16 @@
 /** @format */
 
-import React from 'react' // Add this line to import React
-import MaxWidthWrapper from '@/components/maxWidthWrapper'
-import { Button } from '@/components/ui/button'
+import React from 'react'; // Add this line to import React
+import MaxWidthWrapper from '@/components/maxWidthWrapper';
+import { Button } from '@/components/ui/button';
 
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import Link from 'next/link'
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import Link from 'next/link';
 
-import { FaPalette } from 'react-icons/fa6'
-import { FaPenNib } from 'react-icons/fa6'
-import { FaArrowRight } from 'react-icons/fa6'
-import { FaHandHoldingHeart } from 'react-icons/fa'
+import { FaPalette } from 'react-icons/fa6';
+import { FaPenNib } from 'react-icons/fa6';
+import { FaArrowRight } from 'react-icons/fa6';
+import { FaHandHoldingHeart } from 'react-icons/fa';
 
 const perks = [
 	{
@@ -28,7 +28,7 @@ const perks = [
 		Icon: FaHandHoldingHeart,
 		description: 'Find unique handmade items and unique genuine friendships.',
 	},
-]
+];
 
 export default function Home() {
 	return (
@@ -42,12 +42,12 @@ export default function Home() {
 								Posh Punk
 							</h1>
 							<h2 className=' text-foreground text-2xl sm:text-3xl'>Digital Emporium</h2>
-							<p className='mt-2 text-lg  max-w-prose text-center'>
-								A space for collectors.
-							</p>
+							<p className='mt-2 text-lg  max-w-prose text-center'>A space for collectors.</p>
 							<div className='flex flex-col sm:flex-row gap-4 mt-2'>
 								<Link href='/products'>
-									<Button variant='link'>What Will Find You Today? <FaArrowRight className="ml-1" /></Button>
+									<Button variant='link'>
+										What Will Find You Today? <FaArrowRight className='ml-1' />
+									</Button>
 								</Link>
 							</div>
 						</div>
@@ -83,5 +83,5 @@ export default function Home() {
 				</section>
 			</section>
 		</section>
-	)
+	);
 }

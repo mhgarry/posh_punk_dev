@@ -1,23 +1,16 @@
-'use client'
+'use client';
 
-import { User } from '@/payload-types'
-import { Button } from './ui/button'
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuTrigger,
-} from './ui/dropdown-menu'
-import { UserCircle } from 'lucide-react'
-import {
-	DropdownMenuItem,
-	DropdownMenuSeparator,
-} from '@radix-ui/react-dropdown-menu'
-import Link from 'next/link'
-import { useAuth } from '@/hooks/use-auth'
-import { sign } from 'crypto'
+import { User } from '@/payload-types';
+import { Button } from './ui/button';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from './ui/dropdown-menu';
+import { UserCircle } from 'lucide-react';
+import { DropdownMenuItem, DropdownMenuSeparator } from '@radix-ui/react-dropdown-menu';
+import Link from 'next/link';
+import { useAuth } from '@/hooks/use-auth';
+import { sign } from 'crypto';
 
 const UserAccountNav = ({ user }: { user: User }) => {
-	const { signOut } = useAuth()
+	const { signOut } = useAuth();
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild className='overflow-visible'>
@@ -43,7 +36,7 @@ const UserAccountNav = ({ user }: { user: User }) => {
 				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>
-	)
-}
+	);
+};
 
-export default UserAccountNav
+export default UserAccountNav;

@@ -1,5 +1,5 @@
-import { appRouter } from '@/trpc'
-import { fetchRequestHandler } from '@trpc/server/adapters/fetch'
+import { appRouter } from '@/trpc';
+import { fetchRequestHandler } from '@trpc/server/adapters/fetch';
 
 const handler = (req: Request) => {
 	fetchRequestHandler({
@@ -8,7 +8,7 @@ const handler = (req: Request) => {
 		router: appRouter,
 		// @ts-expect-error	-- already passed from express middleware
 		createContext: () => ({}),
-	})
-}
+	});
+};
 
-export { handler as GET, handler as POST }
+export { handler as GET, handler as POST };

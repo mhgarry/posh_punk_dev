@@ -1,17 +1,17 @@
-import Link from 'next/link'
-import MaxWidthWrapper from './maxWidthWrapper'
-import { Icons } from './icons'
-import NavItems from './nav-items'
-import { buttonVariants } from './ui/button'
-import Cart from './cart'
-import ThemeToggle from './theme-toggle'
-import { getServerSideUser } from '@/lib/payload-utils'
-import { cookies } from 'next/headers'
-import UserAccountNav from './user-account-nav'
+import Link from 'next/link';
+import MaxWidthWrapper from './maxWidthWrapper';
+import { Icons } from './icons';
+import NavItems from './nav-items';
+import { buttonVariants } from './ui/button';
+import Cart from './cart';
+import ThemeToggle from './theme-toggle';
+import { getServerSideUser } from '@/lib/payload-utils';
+import { cookies } from 'next/headers';
+import UserAccountNav from './user-account-nav';
 
 const Navbar = async () => {
-	const nextCookies = cookies()
-	const { user } = await getServerSideUser(nextCookies)
+	const nextCookies = cookies();
+	const { user } = await getServerSideUser(nextCookies);
 
 	return (
 		<div className='bg-background sticky z-50 top-0 inset-x-0 h-16'>
@@ -25,7 +25,6 @@ const Navbar = async () => {
 								<Link href='/'>
 									<Icons.logo className='h-10 w-10' />
 								</Link>
-					
 							</div>
 							<div className='hidden lg:flex lg:flex-1  lg:items-center lg:justify-between lg:space-x-6'>
 								<NavItems />
@@ -35,7 +34,7 @@ const Navbar = async () => {
 								<div className='hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6'>
 									{user ? null : (
 										<Link
-											href='/log-in'
+											href='/login'
 											className={buttonVariants({
 												variant: 'secondary',
 											})}
@@ -43,7 +42,7 @@ const Navbar = async () => {
 											Login
 										</Link>
 									)}
-				
+
 									{user ? (
 										<UserAccountNav user={user} />
 									) : (
@@ -56,11 +55,11 @@ const Navbar = async () => {
 											Register
 										</Link>
 									)}
-											{user ? null : <span className='h-6 w-px bg-primary' />}
+									{user ? null : <span className='h-6 w-px bg-primary' />}
 									<div className='ml-4 flow-root lg:ml-6'>
 										<ThemeToggle />
 									</div>
-{/* 
+									{/* 
 									{user ? null : <span className='h-6 w-px bg-primary' />}
 									{user ? null : (
 										<div className='flex lg:ml-6'>
@@ -78,7 +77,7 @@ const Navbar = async () => {
 				</MaxWidthWrapper>
 			</header>
 		</div>
-	)
-}
+	);
+};
 
-export default Navbar
+export default Navbar;

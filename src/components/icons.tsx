@@ -1,4 +1,4 @@
-import { LucideProps } from 'lucide-react'
+import { LucideProps } from 'lucide-react';
 export const Icons = {
 	logo: (props: LucideProps) => (
 		<svg {...props} viewBox='0 0 512 512'>
@@ -5060,4 +5060,4 @@ export const Icons = {
 			<path d='M0 0 C2 1 2 1 2 1 Z ' fill='#000000' transform='translate(201,399)' />
 		</svg>
 	),
-}
+};
